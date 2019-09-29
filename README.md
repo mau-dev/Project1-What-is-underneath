@@ -1,4 +1,5 @@
-** # Project1-What-is-underneath **
+**Project#1 What's underneath**
+
 What's Underneath game [HTML, DOM, CSS, JavaScript]
 General Assembly Software Engineering Immersive 20 Unit 1 Project - What's Underneath
 Check out the game here! //
