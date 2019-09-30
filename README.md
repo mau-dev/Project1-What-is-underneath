@@ -2,7 +2,7 @@
 
 What's Underneath game [HTML, DOM, CSS, JavaScript]
 General Assembly Software Engineering Immersive 20 Unit 1 Project - What's Underneath
-Check out the game here! //
+Check out the game here! https://mau-dev.github.io/Project1-What-is-underneath/
 
 **Instructions and Objectives**
 Guess what's underneath and describe the hidden illustration with one word to win. Click on the squares to reveal any part of the hidden image. Type your answer into the input field and submit. Less squares you reveal before guessing, higher the score.
