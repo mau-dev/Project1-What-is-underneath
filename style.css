@@ -1,8 +1,18 @@
+/*yellow shade for changing text on game board #E3CD81*/
+
 body {
 
 	background-color: white;
 
+
 }
+
+button:active {
+	outline: none;
+}
+
+
+
 
 header {
 
@@ -106,6 +116,17 @@ main {
 	/*float: left;*/
 }
 
+#score-aside {
+ display: inline-block;
+	position: absolute;
+	top:25%;
+	margin: 50px 10px;
+	left: 10%;
+	/*right: : 70%;
+	background-color: blue;*/
+
+}
+
 #input-field {
 	/*position: absolute;
 	right: 15%;
@@ -119,6 +140,12 @@ main {
 
 	border-radius: 5px;
 }
+
+#input-field:focus {
+ outline-color: #E3CD81;
+
+}
+
 .square {
 
   /*position: absolute;*/
