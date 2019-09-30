@@ -44,6 +44,15 @@ h1 {
 
 }
 
+h2, h3 {
+
+ font-family: 'Indie Flower', cursive;
+	font-size: 30px;
+	text-align: left;
+	color: white;
+
+}
+
 .nav-div {
 
 	width: 500px;
@@ -73,7 +82,7 @@ h1 {
 }
 
 main {
-
+/*display: inline-flex;*/
 	position: relative;
   border-radius: 10px;
 	background-color: #E5FBFC;
@@ -85,6 +94,31 @@ main {
 
 }
 
+#answer-board {
+	display: inline-block;
+	position: absolute;
+	top:25%;
+	margin: 50px 10px;
+	left: 70%;
+	/*width: 400px;
+	height: 450px;*/
+	/*background-color: blue;*/
+	/*float: left;*/
+}
+
+#input-field {
+	/*position: absolute;
+	right: 15%;
+	top: 35%;*/
+	/*float: right;*/
+	display: inline-block;
+	/*clear: right;*/
+	height: 50px;
+	width: 200px;
+/**/
+
+	border-radius: 5px;
+}
 .square {
 
   /*position: absolute;*/
