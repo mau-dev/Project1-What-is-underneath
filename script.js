@@ -1,4 +1,21 @@
 //make array with the photos
+// var game {
+//     bears: "images/bears.jpg",
+//     cat: "images/cat.jpg",
+//     dog: "images/dog.jpg",
+//     plane: "images/plane.jpg",
+//     racoon: "images/racoon.jpg",
+//     robot: "images/robot.jpg"
+
+// }
+ var gameArray = [
+        case1 = {answer: "bears", url: "images/bears.jpg"},
+        case3 = {answer: "cat", url: "images/cat.jpg"},
+        case4 = {answer: "dog", url: "images/dog.jpg"},
+        case5 = {answer: "plane", url: "images/plane.jpg"},
+        case6 = {answer: "racoon", url: "images/racoon.jpg"},
+        case7 = {answer: "robot", url: "images/robot.jpg"}
+    ];
 
 
 //intro screen
@@ -122,7 +139,7 @@ function startGame(event) {
     //create a div for the image underneath
     var img = document.createElement('img');
         main.appendChild(img);
-        img.setAttribute('src', 'images/bears-parts/bears.jpg');
+        img.setAttribute('src', 'images/bears.jpg');
 
     var hideImgDiv = document.createElement('div');
         main.appendChild(hideImgDiv);
@@ -154,17 +171,57 @@ function startGame(event) {
 
         };
 
+    // //input board
+
+    var answerBoard = document.createElement('aside');
+        body.appendChild(answerBoard);
+        answerBoard.setAttribute('id', 'answer-board');
+        // answerBoard.insertBefore(main, body);
+
+
+    //input question
+    var question = document.createElement('h2');
+        answerBoard.appendChild(question);
+        question.innerHTML = "Guess what's <br/>hidden underneath?"
+
+
+    //input
+    var inputField = document.createElement('input');
+        answerBoard.appendChild(inputField);
+        inputField.setAttribute('id','input-field');
+        inputField.setAttribute('placeholder','Type here...')
+        inputField.addEventListener('change', function(event){
+        var currentInput = event.target.value;
+        var output = inputHappened(currentInput);
+        display( output );
+      })
+     var display = function( data ){
+        var output = document.querySelector('#output');
+        output.innerText = data;
+      }
+
+    //output answer
+    var output = document.createElement('h3');
+        answerBoard.appendChild(output);
+        output.setAttribute('id','output')
+
+
  }
 
 
 
+var inputHappened = function(currentInput){
 
-//greeting screen
-//should ask the player about the name
+  return currentInput;
+};
+
+
+// greeting screen
+// should ask the player about the name
 // store the nam in a var, and use for the greeting and table with score
 
-//game screen
+// game screen
 // the board in the middle
 // the input to the right
 
-//the score board to the left
+// the score board to the left
