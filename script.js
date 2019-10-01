@@ -19,6 +19,8 @@ var name = "Mau";
         case7 = {answer: "robot", url: "images/robot.jpg"}
     ];
 
+// console.log(gameArray);
+// console.log(gameArray[1].answer);
 //covering buttons grid
 var grid = [
 [null, null, null, null, null, null, null, null, null, null],
@@ -134,6 +136,7 @@ function startGame(event) {
     //create a div for the image underneath
     var img = document.createElement('img');
         main.appendChild(img);
+        img.setAttribute('id', 'current-img');
         img.setAttribute('src', 'images/bears.jpg');
 
 
@@ -174,9 +177,16 @@ function startGame(event) {
             for (var i=0; i < square.length; i++) {
                 square[i].style.visibility = "visible";
             }
-            var img = document.querySelector('img');
+            var img = document.getElementById('current-img');
         img.setAttribute('src', `${gameArray[counter].url}`);
 
+
+    var text = document.getElementById('checkText');
+    console.log('beforeeeeeeeeeeeee', text.innerText);
+    text.innerText = "";
+    console.log('zfterrrrrrrr', text.innerText)
+    document.getElementById('output').innerText = "";
+    counter++;
         // img.setAttribute('src', `${gameArray[counter].url}`);
     }
 
@@ -197,41 +207,97 @@ var inputBoard = function() {
         question.innerHTML = "Guess what's <br/>hidden underneath?";
 
 
+
+
     //input
     var inputField = document.createElement('input');
         answerBoard.appendChild(inputField);
         inputField.setAttribute('id','input-field');
         inputField.setAttribute('placeholder','Type here...')
 
+     var showAnswer = document.createElement('h3');
+        answerBoard.appendChild(showAnswer);
+        showAnswer.setAttribute('id','output');
+
+
+  var displayCorrectOrFalse = document.createElement('h3');
+            displayCorrectOrFalse.setAttribute('id','checkText');
+            answerBoard.appendChild(displayCorrectOrFalse);
+            displayCorrectOrFalse.innerText = "";
+
         inputField.addEventListener('change', function(event){
         var currentInput = event.target.value;
         event.target.value = "";
         var square = document.querySelectorAll('.square');
-        for (var i=0; i < square.length; i++) {
-            square[i].style.visibility = "hidden";
-        }
+            for (var i=0; i < square.length; i++) {
+                square[i].style.visibility = "hidden";
+
+            }
+
+
+
+
+        var output = inputHappened(currentInput);
+        checkAnswer(output);
+        display( output );
+
         // counter++;
         setTimeout(newImg, 2000);
+
 
         // var img = document.querySelector('img');
         // img.setAttribute('src', `${gameArray[counter].url}`);
 
-        var output = inputHappened(currentInput);
-        display( output );
-        counter++;
+
+
+        // console.log(showAnswer.innerText);
+        // console.log(showAnswer);
       })
 
 
-
-         var display = function( data ){
+        var display = function( data ){
         var output = document.querySelector('#output');
         output.innerText = data;
       }
 
-    //output answer
-        var output = document.createElement('h3');
-        answerBoard.appendChild(output);
-        output.setAttribute('id','output')
+
+      var checkAnswer = function(userAnswer) {
+
+
+            var currentImg = document.getElementById('current-img');
+            var currentImgUrl = currentImg.getAttribute('src');
+            console.log(currentImgUrl);
+
+
+        // for (var i = 0; i < gameArray.length; i++) {
+            var gameAnswer = gameArray[counter-1].answer;
+
+            // var arrayImg = gameArray[i].url;
+            // console.log(arrayImg);
+            console.log(userAnswer);
+            console.log(gameAnswer);
+            if(userAnswer === gameAnswer) {
+                // console.log('true');
+                displayCorrectOrFalse.innerText = "Correct";
+                displayCorrectOrFalse.style.color = "#E3CD81"
+
+                score += 5000;
+                console.log('in correct func!')
+
+                // update()
+
+            } else {
+
+                 displayCorrectOrFalse.innerText = "False";
+                displayCorrectOrFalse.style.color = "#D8514E"
+                console.log('in wronf func!')
+
+            }
+
+
+      }
+
+
     };
 
 
@@ -240,9 +306,18 @@ var inputBoard = function() {
 
 var inputHappened = function(currentInput){
 
+// console.log(output.innerText);
+// if(output.innerText === "bears") {
+//     console.log('mau');
+// } else {
+//     console.log('av');
+// };
+
+
   return currentInput;
 
 };
+
 
 
 //create score board
@@ -269,7 +344,8 @@ var scoreBoard = function() {
      //new score placeholder
     var newScoreElement = document.createElement('h2');
         scoreAside.appendChild(newScoreElement);
-        newScoreElement.innerHTML = `New Score: ${score}`;
+        newScoreElement.innerHTML = `New Score:${score}`;
+
 }
 
 

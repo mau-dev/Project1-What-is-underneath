@@ -104,6 +104,8 @@ main {
 
 }
 
+
+
 #answer-board {
 	display: inline-block;
 	position: absolute;
@@ -141,10 +143,10 @@ main {
 	border-radius: 5px;
 }
 
-#input-field:focus {
+/*#input-field:focus {
  outline-color: #E3CD81;
 
-}
+}*/
 
 .square {
 
