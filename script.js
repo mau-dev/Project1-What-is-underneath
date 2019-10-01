@@ -184,11 +184,19 @@ function startGame(event) {
     var text = document.getElementById('checkText');
     console.log('beforeeeeeeeeeeeee', text.innerText);
     text.innerText = "";
+     document.getElementById('new-score').innerHTML = `New Score: 0`;
     console.log('zfterrrrrrrr', text.innerText)
     document.getElementById('output').innerText = "";
     counter++;
         // img.setAttribute('src', `${gameArray[counter].url}`);
     }
+
+
+
+
+//create score board
+//should have player name, overall score and reset to 0; score, and score from current image guess before proceed to the next img, then is added to overall score and reset to 0;
+//should be placed on the left of the game board
 
 
 // //input board
@@ -279,9 +287,17 @@ var inputBoard = function() {
             if(userAnswer === gameAnswer) {
                 // console.log('true');
                 displayCorrectOrFalse.innerText = "Correct";
-                displayCorrectOrFalse.style.color = "#E3CD81"
+                displayCorrectOrFalse.style.color = "#E3CD81";
 
-                score += 5000;
+                score = 5000;
+
+                totalScore += score;
+
+
+
+                document.getElementById('total-score').innerHTML = `Total Score: ${totalScore}`;
+                 document.getElementById('new-score').innerHTML = `New Score: ${score}`;
+                // updateScore.innerHTML = "dgsgd";
                 console.log('in correct func!')
 
                 // update()
@@ -289,7 +305,7 @@ var inputBoard = function() {
             } else {
 
                  displayCorrectOrFalse.innerText = "False";
-                displayCorrectOrFalse.style.color = "#D8514E"
+                displayCorrectOrFalse.style.color = "#D8514E";
                 console.log('in wronf func!')
 
             }
@@ -319,12 +335,7 @@ var inputHappened = function(currentInput){
 };
 
 
-
-//create score board
-//should have player name, overall score and reset to 0; score, and score from current image guess before proceed to the next img, then is added to overall score and reset to 0;
-//should be placed on the left of the game board
-
-var scoreBoard = function() {
+function scoreBoard()  {
 
      var scoreAside = document.createElement('aside');
         body.appendChild(scoreAside);
@@ -339,12 +350,15 @@ var scoreBoard = function() {
      //total score placeholder
     var totalScoreElement = document.createElement('h2');
         scoreAside.appendChild(totalScoreElement);
+         totalScoreElement.setAttribute('id', 'total-score');
         totalScoreElement.innerHTML = `Total Score: ${totalScore}`;
 
      //new score placeholder
     var newScoreElement = document.createElement('h2');
         scoreAside.appendChild(newScoreElement);
+
         newScoreElement.innerHTML = `New Score:${score}`;
+         newScoreElement.setAttribute('id', 'new-score');
 
 }
 
