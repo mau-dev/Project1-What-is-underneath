@@ -101,13 +101,17 @@ function expandInstructions(event) {
 
 function exit() {
 
+    var instDiv = document.getElementById('instructions');
+    body.removeChild(instDiv);
+    // instDiv.style.display = "none";
+
     navigationDiv.style.display = 'block';
     body.style.backgroundColor = "white";
     body.style.color = "black";
-    // instructionsDiv.style.display = 'none';
-    document.getElementById('instructions').style.display = "none";
-    // instructionsDiv.reset();
-    exitBtn.style.display = "none";
+    // // instructionsDiv.style.display = 'none';
+    // document.getElementById('instructions').style.display = "none";
+    // // instructionsDiv.reset();
+    // exitBtn.style.display = "none";
 }
 
 
