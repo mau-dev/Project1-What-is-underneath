@@ -178,6 +178,7 @@ function startGame(event) {
 
 //call this func from scoreboard func with 2 sec timeout
 var newImg = function() {
+    clicks = 0;
     var square = document.querySelectorAll('.square');
     for (var i = 0; i < square.length; i++) {
         square[i].style.visibility = "visible";
@@ -304,7 +305,7 @@ var inputBoard = function() {
 
             score = 5000;
 
-            score = score - (clicks * 0.2);
+            score = score - (clicks * 250);
 
             totalScore += score;
 
